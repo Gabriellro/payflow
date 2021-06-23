@@ -1,7 +1,9 @@
-// ignore_for_file: sized_box_for_whitespace
+// ignore_for_file: sized_box_for_whitespace, avoid_print, prefer_const_constructors_in_immutables
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'package:payflow/modules/login/login_controller.dart';
 
 import 'package:payflow/shared/theme/app_colors.dart';
 import 'package:payflow/shared/theme/app_images.dart';
@@ -9,13 +11,14 @@ import 'package:payflow/shared/theme/app_text_styles.dart';
 import 'package:payflow/shared/widgets/social_login_button.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  LoginPage({Key? key}) : super(key: key);
 
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final controller = LoginController();
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -67,8 +70,7 @@ class _LoginPageState extends State<LoginPage> {
                         const EdgeInsets.only(left: 40, right: 40, top: 40),
                     child: SocialLoginButton(
                       onTap: () {
-                        // ignore: avoid_print
-                        print("clicou");
+                        controller.googleSingIn(context);
                       },
                     ),
                   )

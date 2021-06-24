@@ -19,7 +19,7 @@ class SocialLoginButton extends StatelessWidget {
             color: AppColors.shape,
             borderRadius: BorderRadius.circular(5),
             border: Border.fromBorderSide(
-              const BorderSide(
+              BorderSide(
                 color: AppColors.stroke,
               ),
             )),

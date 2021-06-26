@@ -1,7 +1,7 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
-import 'package:payflow/shared/theme/app_text_styles.dart';
+import 'package:payflow/shared/themes/app_text_styles.dart';
 
 class LabelButton extends StatelessWidget {
   final String label;

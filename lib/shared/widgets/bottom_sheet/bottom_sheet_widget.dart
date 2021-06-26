@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:payflow/shared/theme/app_colors.dart';
-import 'package:payflow/shared/theme/app_text_styles.dart';
+import 'package:payflow/shared/themes/app_colors.dart';
+import 'package:payflow/shared/themes/app_text_styles.dart';
 
 import 'package:payflow/shared/widgets/set_buttons/set_label_buttons.dart';
 

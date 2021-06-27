@@ -1,6 +1,7 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:payflow/modules/extract/extract_page.dart';
 import 'package:payflow/modules/home/home_controller.dart';
 import 'package:payflow/modules/meus_boletos/meus_boletos_page.dart';
@@ -21,6 +22,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.light,
+    ));
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(152),
@@ -67,16 +72,19 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
-                onPressed: () {
-                  controller.setPage(0);
-                  setState(() {});
-                },
-                icon: Icon(
-                  Icons.home,
-                  color: controller.currentPage == 0
-                      ? AppColors.primary
-                      : AppColors.body,
-                )),
+              onPressed: () {
+                controller.setPage(0);
+                setState(() {});
+              },
+              icon: Icon(
+                controller.currentPage == 0
+                    ? Icons.home_rounded
+                    : Icons.home_outlined,
+                color: controller.currentPage == 0
+                    ? AppColors.primary
+                    : AppColors.body,
+              ),
+            ),
             GestureDetector(
               onTap: () async {
                 await Navigator.pushNamed(context, "/barcode_scanner");
@@ -95,16 +103,19 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             IconButton(
-                onPressed: () {
-                  controller.setPage(1);
-                  setState(() {});
-                },
-                icon: Icon(
-                  Icons.description_outlined,
-                  color: controller.currentPage == 1
-                      ? AppColors.primary
-                      : AppColors.body,
-                ))
+              onPressed: () {
+                controller.setPage(1);
+                setState(() {});
+              },
+              icon: Icon(
+                controller.currentPage == 1
+                    ? Icons.description_rounded
+                    : Icons.description_outlined,
+                color: controller.currentPage == 1
+                    ? AppColors.primary
+                    : AppColors.body,
+              ),
+            ),
           ],
         ),
       ),
